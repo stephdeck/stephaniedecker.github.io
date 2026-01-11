@@ -11,7 +11,7 @@
         :root {
             --color-ink: #0a0a0a;
             --color-stone: #6a6a6a;
-            --color-accent: #d62828;
+            --color-accent: #2b6a6c;
             --font-display: 'Spectral', Georgia, serif;
             --font-body: 'Work Sans', -apple-system, sans-serif;
         }
@@ -49,7 +49,6 @@
             width: 240px;
             height: 320px;
             object-fit: cover;
-            filter: grayscale(100%) contrast(1.1);
             position: sticky;
             top: 40px;
         }
@@ -60,28 +59,50 @@
 
         h1 {
             font-family: var(--font-display);
-            font-size: 5rem;
-            font-weight: 300;
-            letter-spacing: -0.04em;
-            line-height: 0.9;
-            margin-bottom: 40px;
-            color: var(--color-ink);
-        }
-
-        .subtitle {
-            font-size: 1.3rem;
-            color: var(--color-stone);
-            font-weight: 300;
+            font-size: 3rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
             margin-bottom: 12px;
-            letter-spacing: -0.01em;
+            color: var(--color-ink);
         }
 
         .credentials {
             font-size: 0.85rem;
             color: var(--color-stone);
             font-weight: 400;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.08em;
+            margin-bottom: 32px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--color-stone);
+            font-weight: 400;
+            margin-bottom: 48px;
+            line-height: 1.5;
+        }
+
+        .header-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .header-link {
+            color: var(--color-accent);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
+            border-bottom: 1px solid var(--color-accent);
+            padding-bottom: 2px;
+            transition: opacity 0.3s ease;
+        }
+
+        .header-link:hover {
+            opacity: 0.6;
         }
 
         section {
@@ -116,7 +137,7 @@
             text-decoration: underline;
             text-decoration-color: var(--color-accent);
             text-underline-offset: 2px;
-            transition: all 0.3s ease;
+            transition: opacity 0.3s ease;
         }
 
         .bio a:hover {
@@ -152,7 +173,7 @@
             font-weight: 400;
             border-bottom: 1px solid var(--color-accent);
             padding-bottom: 2px;
-            transition: all 0.3s ease;
+            transition: opacity 0.3s ease;
         }
 
         .panel-link:hover {
@@ -194,7 +215,7 @@
         .feed-post-title a {
             color: var(--color-ink);
             text-decoration: none;
-            transition: opacity 0.3s ease;
+            transition: color 0.3s ease;
         }
 
         .feed-post-title a:hover {
@@ -216,85 +237,10 @@
             max-width: 600px;
         }
 
-        .links-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2px;
-            background: var(--color-ink);
-            border: 2px solid var(--color-ink);
-        }
-
-        .link-card {
-            display: block;
-            padding: 48px 32px;
-            text-decoration: none;
-            color: var(--color-ink);
-            background: white;
-            transition: all 0.4s ease;
-            position: relative;
-        }
-
-        .link-card:hover {
-            background: var(--color-accent);
-            color: white;
-        }
-
-        .link-card h3 {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            font-weight: 300;
-            margin-bottom: 8px;
-            letter-spacing: -0.01em;
-        }
-
-        .link-card p {
-            font-size: 0.85rem;
-            color: var(--color-stone);
-            font-weight: 300;
-            letter-spacing: 0.02em;
-            transition: color 0.4s ease;
-        }
-
-        .link-card:hover p {
-            color: #999;
-        }
-
         .publications-section {
             padding: 60px;
             background: #fafafa;
             margin-bottom: 60px;
-        }
-
-        .pub-controls {
-            display: flex;
-            gap: 2px;
-            margin-bottom: 60px;
-            background: var(--color-ink);
-            border: 2px solid var(--color-ink);
-        }
-
-        .pub-toggle {
-            flex: 1;
-            padding: 16px 32px;
-            border: none;
-            background: white;
-            color: var(--color-ink);
-            font-family: var(--font-body);
-            font-size: 0.85rem;
-            font-weight: 400;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-        }
-
-        .pub-toggle:hover {
-            background: #f5f5f5;
-        }
-
-        .pub-toggle.active {
-            background: var(--color-accent);
-            color: white;
         }
 
         .publication-item {
@@ -304,10 +250,7 @@
 
         .publication-item:first-child {
             border-top: none;
-        }
-
-        .publication-item.hidden {
-            display: none;
+            padding-top: 0;
         }
 
         .pub-title {
@@ -326,19 +269,6 @@
             line-height: 1.6;
         }
 
-        .pub-badge {
-            display: inline-block;
-            padding: 4px 12px;
-            background: var(--color-accent);
-            color: white;
-            font-size: 0.7rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-left: 12px;
-            vertical-align: middle;
-        }
-
         .pub-link {
             display: inline-block;
             margin-top: 16px;
@@ -350,7 +280,7 @@
             text-transform: uppercase;
             border-bottom: 1px solid var(--color-accent);
             padding-bottom: 2px;
-            transition: all 0.3s ease;
+            transition: opacity 0.3s ease;
         }
 
         .pub-link:hover {
@@ -383,11 +313,7 @@
             }
 
             h1 {
-                font-size: 3.5rem;
-            }
-
-            .links-grid {
-                grid-template-columns: 1fr;
+                font-size: 2.5rem;
             }
         }
 
@@ -404,18 +330,25 @@
 
             .profile-photo {
                 width: 100%;
+                max-width: 240px;
                 height: auto;
                 aspect-ratio: 3/4;
                 position: relative;
                 top: 0;
+                margin: 0 auto;
             }
 
             .header-text {
                 padding-top: 0;
+                text-align: center;
             }
 
             h1 {
-                font-size: 2.8rem;
+                font-size: 2.2rem;
+            }
+
+            .header-links {
+                justify-content: center;
             }
 
             .bio {
@@ -438,9 +371,16 @@
         <header>
             <img src="profile-photo.jpg" alt="Stephanie Decker" class="profile-photo">
             <div class="header-text">
-                <h1>Stephanie<br>Decker</h1>
-                <p class="subtitle">Professor of Strategy</p>
-                <p class="credentials">FAcSS • FBAM • University of Birmingham</p>
+                <h1>Stephanie Decker</h1>
+                <p class="credentials">FAcSS • FBAM • FHEA</p>
+                <p class="subtitle">Professor of Strategy & History<br>University of Birmingham Business School</p>
+                <div class="header-links">
+                    <a href="https://www.birmingham.ac.uk/staff/profiles/business/decker-stephanie" class="header-link" target="_blank">Birmingham</a>
+                    <a href="https://www.linkedin.com/in/stephaniedecker" class="header-link" target="_blank">LinkedIn</a>
+                    <a href="https://www.researchgate.net/profile/Stephanie-Decker-2" class="header-link" target="_blank">ResearchGate</a>
+                    <a href="https://m.youtube.com/@stephaniedecker" class="header-link" target="_blank">YouTube</a>
+                    <a href="https://organizationalhistorynetwork.substack.com/" class="header-link" target="_blank">Substack</a>
+                </div>
             </div>
         </header>
 
@@ -458,116 +398,71 @@
         </section>
 
         <section>
-            <h2>Connect</h2>
-            
-            <div class="substack-panel">
-                <div class="panel-header">
-                    <h3>Organizational History Network</h3>
-                    <a href="https://organizationalhistorynetwork.substack.com/" target="_blank" class="panel-link">View on Substack →</a>
-                </div>
-                <div id="substack-feed" class="feed-content">
-                    <div class="feed-loading">Loading recent posts...</div>
-                </div>
-            </div>
-
-            <div class="links-grid">
-                <a href="https://www.linkedin.com/in/stephaniedecker" class="link-card" target="_blank">
-                    <h3>LinkedIn</h3>
-                    <p>Professional Profile</p>
-                </a>
-                <a href="https://www.researchgate.net/profile/Stephanie-Decker-2" class="link-card" target="_blank">
-                    <h3>ResearchGate</h3>
-                    <p>Publications & Research</p>
-                </a>
-                <a href="https://m.youtube.com/@stephaniedecker" class="link-card" target="_blank">
-                    <h3>YouTube</h3>
-                    <p>Video Content</p>
-                </a>
-                <a href="https://research.birmingham.ac.uk/en/persons/stephanie-decker/" class="link-card" target="_blank">
-                    <h3>Birmingham Profile</h3>
-                    <p>University Research Portal</p>
-                </a>
-            </div>
-        </section>
-
-        <section>
-            <h2>Publications</h2>
+            <h2>Recent Publications</h2>
             
             <div class="publications-section">
-                <div class="pub-controls">
-                    <button class="pub-toggle active" data-filter="all">All Publications</button>
-                    <button class="pub-toggle" data-filter="featured">Featured Publications</button>
+                <div class="publication-item">
+                    <div class="pub-title">
+                        Conceptualising methodological diversity among born-digital users: insights from the garbage can model
+                    </div>
+                    <div class="pub-meta">
+                        Nix, A., Decker, S. & Kirsch, D. (2025)<br>
+                        <em>AI & Society</em>
+                    </div>
+                    <a href="https://research.birmingham.ac.uk/en/publications/conceptualising-methodological-diversity-among-born-digital-users/" class="pub-link" target="_blank">View publication →</a>
                 </div>
 
-                <div id="publications-list">
-                    <div class="publication-item" data-category="featured">
-                        <div class="pub-title">
-                            Conceptualising methodological diversity among born-digital users: insights from the garbage can model
-                            <span class="pub-badge">Featured</span>
-                        </div>
-                        <div class="pub-meta">
-                            Nix, A., Decker, S. & Kirsch, D. (2025)<br>
-                            <em>AI & Society</em>
-                        </div>
-                        <a href="https://research.birmingham.ac.uk/en/publications/conceptualising-methodological-diversity-among-born-digital-users/" class="pub-link" target="_blank">View publication →</a>
+                <div class="publication-item">
+                    <div class="pub-title">
+                        Minding the gaps: Triangulation strategies for colonial and postcolonial archives
                     </div>
+                    <div class="pub-meta">
+                        Decker, S., Nix, A. & Shen, G. (2025)<br>
+                        <em>Business History</em>
+                    </div>
+                    <a href="https://research.birmingham.ac.uk/en/publications/minding-the-gaps-triangulation-strategies-for-colonial-and-postco/" class="pub-link" target="_blank">View publication →</a>
+                </div>
 
-                    <div class="publication-item" data-category="featured">
-                        <div class="pub-title">
-                            Minding the gaps: Triangulation strategies for colonial and postcolonial archives
-                            <span class="pub-badge">Featured</span>
-                        </div>
-                        <div class="pub-meta">
-                            Decker, S., Nix, A. & Shen, G. (2025)<br>
-                            <em>Business History</em>
-                        </div>
-                        <a href="https://research.birmingham.ac.uk/en/publications/minding-the-gaps-triangulation-strategies-for-colonial-and-postco/" class="pub-link" target="_blank">View publication →</a>
+                <div class="publication-item">
+                    <div class="pub-title">
+                        Decolonising the business and management curriculum: An ontological modesty perspective
                     </div>
+                    <div class="pub-meta">
+                        Śliwa, M., Decker, S., Barros, A.N.D., Omeihe, K. & Prasad, A. (2025)<br>
+                        <em>Management Learning</em>, 56(2), 153-159
+                    </div>
+                    <a href="https://research.birmingham.ac.uk/en/publications/decolonising-the-business-and-management-curriculum-an-ontologica/" class="pub-link" target="_blank">View publication →</a>
+                </div>
 
-                    <div class="publication-item" data-category="featured">
-                        <div class="pub-title">
-                            Decolonising the business and management curriculum: An ontological modesty perspective
-                            <span class="pub-badge">Featured</span>
-                        </div>
-                        <div class="pub-meta">
-                            Śliwa, M., Decker, S., Barros, A.N.D., Omeihe, K. & Prasad, A. (2025)<br>
-                            <em>Management Learning</em>, 56(2), 153-159
-                        </div>
-                        <a href="https://research.birmingham.ac.uk/en/publications/decolonising-the-business-and-management-curriculum-an-ontologica/" class="pub-link" target="_blank">View publication →</a>
+                <div class="publication-item">
+                    <div class="pub-title">
+                        A microhistory of architecture historical imagination and the Bauhaus
                     </div>
+                    <div class="pub-meta">
+                        Decker, S., Giovannoni, E. & Plakoyiannaki, E. (2025)<br>
+                        <em>Management and Organizational History</em>, 20(4), 453-477
+                    </div>
+                    <a href="https://research.birmingham.ac.uk/en/publications/a-microhistory-of-architecture-historical-imagination-and-the-bau/" class="pub-link" target="_blank">View publication →</a>
+                </div>
 
-                    <div class="publication-item" data-category="featured">
-                        <div class="pub-title">
-                            A microhistory of architecture historical imagination and the Bauhaus
-                            <span class="pub-badge">Featured</span>
-                        </div>
-                        <div class="pub-meta">
-                            Decker, S., Giovannoni, E. & Plakoyiannaki, E. (2025)<br>
-                            <em>Management and Organizational History</em>, 20(4), 453-477
-                        </div>
-                        <a href="https://research.birmingham.ac.uk/en/publications/a-microhistory-of-architecture-historical-imagination-and-the-bau/" class="pub-link" target="_blank">View publication →</a>
+                <div class="publication-item">
+                    <div class="pub-title">
+                        Charting the Future: Responsible Generative AI for Research
                     </div>
+                    <div class="pub-meta">
+                        Budhwar, P., Decker, S., Chowdhury, S. & Ahmed, S. Q. (2025)<br>
+                        British Academy of Management
+                    </div>
+                </div>
 
-                    <div class="publication-item" data-category="featured">
-                        <div class="pub-title">
-                            Postcolonial Transitions and Global Business History
-                            <span class="pub-badge">Featured</span>
-                        </div>
-                        <div class="pub-meta">
-                            Decker, S. (2023)<br>
-                            Routledge
-                        </div>
+                <div class="publication-item">
+                    <div class="pub-title">
+                        View Complete Publications List
                     </div>
-
-                    <div class="publication-item" data-category="all">
-                        <div class="pub-title">
-                            View Complete Publications List
-                        </div>
-                        <div class="pub-meta">
-                            All 89 publications available on Birmingham Research Portal
-                        </div>
-                        <a href="https://research.birmingham.ac.uk/en/persons/stephanie-decker/publications/" class="pub-link" target="_blank">Browse all publications →</a>
+                    <div class="pub-meta">
+                        All 89 publications available on Birmingham Research Portal
                     </div>
+                    <a href="https://research.birmingham.ac.uk/en/persons/stephanie-decker/publications/" class="pub-link" target="_blank">Browse all publications →</a>
                 </div>
             </div>
         </section>
@@ -576,80 +471,5 @@
             <p>© 2025 Stephanie Decker</p>
         </footer>
     </div>
-
-    <script>
-        async function loadSubstackFeed() {
-            const feedContainer = document.getElementById('substack-feed');
-            const rssUrl = 'https://organizationalhistorynetwork.substack.com/feed';
-            
-            try {
-                const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&count=3`;
-                
-                const response = await fetch(proxyUrl);
-                const data = await response.json();
-                
-                if (data.status === 'ok' && data.items && data.items.length > 0) {
-                    let html = '';
-                    data.items.slice(0, 3).forEach(item => {
-                        const date = new Date(item.pubDate);
-                        const formattedDate = date.toLocaleDateString('en-GB', { 
-                            day: 'numeric', 
-                            month: 'long', 
-                            year: 'numeric' 
-                        });
-                        
-                        const tempDiv = document.createElement('div');
-                        tempDiv.innerHTML = item.description || '';
-                        const excerpt = tempDiv.textContent.slice(0, 150) + '...';
-                        
-                        html += `
-                            <div class="feed-post">
-                                <div class="feed-post-title">
-                                    <a href="${item.link}" target="_blank">${item.title}</a>
-                                </div>
-                                <div class="feed-post-date">${formattedDate}</div>
-                                <div class="feed-post-excerpt">${excerpt}</div>
-                            </div>
-                        `;
-                    });
-                    feedContainer.innerHTML = html;
-                } else {
-                    throw new Error('No posts found');
-                }
-            } catch (error) {
-                feedContainer.innerHTML = `
-                    <div class="feed-error">
-                        Unable to load recent posts. <a href="https://organizationalhistorynetwork.substack.com/" target="_blank" style="color: inherit; text-decoration: underline;">Visit Substack directly →</a>
-                    </div>
-                `;
-            }
-        }
-
-        const toggleButtons = document.querySelectorAll('.pub-toggle');
-        const publications = document.querySelectorAll('.publication-item');
-
-        toggleButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const filter = this.dataset.filter;
-                
-                toggleButtons.forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
-                
-                publications.forEach(pub => {
-                    if (filter === 'all') {
-                        pub.classList.remove('hidden');
-                    } else if (filter === 'featured') {
-                        if (pub.dataset.category === 'featured') {
-                            pub.classList.remove('hidden');
-                        } else {
-                            pub.classList.add('hidden');
-                        }
-                    }
-                });
-            });
-        });
-
-        window.addEventListener('DOMContentLoaded', loadSubstackFeed);
-    </script>
 </body>
 </html>
